@@ -9,7 +9,7 @@ const handleSubmit = (event) => {
     return alert("Усі поля мають бути заповненні!");
   }
   const formDetails = { email: email.value, Password: password.value };
-  console.log(userDetails);
+  console.log(formDetails);
   event.currentTarget.reset();
 };
 

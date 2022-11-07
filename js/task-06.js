@@ -1,14 +1,14 @@
 const inputEl = document.querySelector("#validation-input");
-
-const checkSymbQnt = (event) => {
-  inputEl.classList.add(
-    event.target.value.length >= inputEl.dataset.length ? "valid" : "invalid"
-  );
-};
-
-const onFocusInput = () => {
-  inputEl.classList.remove("valid", "invalid");
-};
-
-inputEl.addEventListener("blur", checkSymbQnt);
-inputEl.addEventListener("focus", onFocusInput);
+inputEl.addEventListener("blur", (event) => {
+  if (event.target.value.length == inputEl.getAttribute("data-length")) {
+    inputEl.classList.add("valid");
+    if (inputEl.classList.contains("invalid")) {
+      inputEl.classList.remove("invalid");
+    }
+  } else {
+    if (inputEl.classList.contains("valid")) {
+      inputEl.classList.remove("valid");
+    }
+    inputEl.classList.add("invalid");
+  }
+});
